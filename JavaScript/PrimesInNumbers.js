@@ -7,7 +7,7 @@ with the p(i) in increasing order and n(i) empty if n(i) is 1.
 
 Example: n = 86240 should return "(2**5)(5)(7**2)(11)"
  */
-
+/*
 function primeFactors(n){
     //your code here
   const PrimeNumbers=[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 97,101,10,107,109,113 ,127,131,137,139,149];
@@ -38,3 +38,37 @@ function primeFactors(n){
     }
   return str;
 }
+*/
+
+function primeFactors(n){
+    let factors = "";
+     let divisor = 2;
+     
+     while (n > 1) {
+       let count = 0;
+       
+       while (n % divisor == 0) {
+         n /= divisor;
+         count++;
+       }
+       
+       if (count > 0) {
+         factors += `(${divisor}`;
+         
+         if (count > 1) {
+           factors += `**${count}`;
+         }
+         
+         factors += ")";
+       }
+       
+       divisor++;
+       
+       if (divisor * divisor > n && n > 1) {
+         factors += `(${n})`;
+         break;
+       }
+     }
+     
+     return factors;
+   }
