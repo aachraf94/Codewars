@@ -13,13 +13,11 @@ Input: 123456789 Output: 987654321
 
 
 function descendingOrder(n){
-    //...
-    
     const str = "" +n;
-    const myArray = str.split();
+    const myArray = str.split("");
     myArray.sort();
-    const str2="";
-    for (let i=0 ; i< myArray.legth; i++)
+    let str2="";
+    for (let i=0 ; i< myArray.length; i++)
       {
         str2 = myArray[i] + str2;
       }
